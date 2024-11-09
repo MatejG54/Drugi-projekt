@@ -52,7 +52,7 @@ function BadAuth() {
             };
 
             try {
-                const response = await fetch("http://localhost:3000/login2", {
+                const response = await fetch("https://drugi-projekt-uwuv.onrender.com/login2", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -93,7 +93,7 @@ function BadAuth() {
             }
 
             try {
-                const response = await fetch("http://localhost:3000/recaptcha", {
+                const response = await fetch("https://drugi-projekt-uwuv.onrender.com/recaptcha", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
