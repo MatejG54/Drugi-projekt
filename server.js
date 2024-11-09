@@ -90,7 +90,7 @@ app.post("/recaptcha", async (req, res) => {
     });
 
     const data = await response.json();
-    // console.log(data)
+    
 
     if (data.success === true) {
         const getUser = `SELECT * FROM public.database WHERE username = $1 and password = $2;`
