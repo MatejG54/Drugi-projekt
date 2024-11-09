@@ -83,12 +83,7 @@ app.post("/recaptcha", async (req, res) => {
     const password = req.body.password;
     // console.log(captchaValue);
 
-    const secretKey = process.env.SECRET_KEY; // Replace with your Secret Key
-    
-    // const params = new URLSearchParams({
-    //     secret: '6LfbpG8qAAAAAMDXGrSpyHN0vJ8gMjwB5zETz1ih',
-    //     response: captchaValue
-    // })
+    const secretKey = process.env.SECRET_KEY;
 
     const response = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaValue}`, {
         method: "POST",

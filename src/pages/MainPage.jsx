@@ -37,27 +37,3 @@ function MainPage() {
 }
 
 export default MainPage
-
-
-// useEffect(() => {
-//     const getAll = async () => {
-//         try {
-//             const response = await fetch("http://localhost:3000/get", {
-//                 method: "GET",
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                 },
-//             });
-
-//             if(!response.ok) {
-//                 throw new Error(`HTTP error! status: ${response.status}`);
-//             }
-
-//             const result = await response.json();
-//             // console.log(result[0].count)
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-//     getAll();
-// }, [])

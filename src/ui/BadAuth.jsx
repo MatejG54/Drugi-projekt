@@ -149,7 +149,7 @@ function BadAuth() {
                 <StyledInput type="text" value={username} placeholder="Username" onChange={(e) => setUsername(e.target.value)}></StyledInput>
                 <StyledInput type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)}></StyledInput>
                 {!isChecked &&
-                <ReCAPTCHA sitekey="6LeJ43kqAAAAAGhQLQNsxCw36Y34cdubvpC9gxAD"
+                <ReCAPTCHA sitekey={process.env.SITE_KEY}
                 onChange={(value) => setCaptchaValue(value)}/>}
                 <StyledButton type="submit">Prijava</StyledButton>
             </StyledForm>
