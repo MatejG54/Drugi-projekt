@@ -127,6 +127,9 @@ function BadAuth() {
     const handleToggle = () => {
         setIsChecked(!isChecked);
         setError("");
+        setShowID("");
+        setShowPass("");
+        setShowUser("");
     }
 
     return (
