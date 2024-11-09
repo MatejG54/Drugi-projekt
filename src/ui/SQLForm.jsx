@@ -40,6 +40,9 @@ function SQLForm() {
 
     const handleToggle = () => {
         setIsChecked(!isChecked);
+        setShowID("");
+        setShowPass("");
+        setShowUser("");
     }
 
     async function handleSubmit(e) {
