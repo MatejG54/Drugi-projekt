@@ -4,6 +4,7 @@ const {query} = require("./db")
 const path = require("path")
 require('dotenv').config();
 
+const port = process.env.PORT;
 
 const app = express();
 app.use(express.json());
@@ -11,7 +12,7 @@ app.use(express.urlencoded({extended: false}));
 // app.use(express.static(path.join(__dirname, 'build')));
 
 const corsOptions = {
-    origin: 'http://localhost:3001',
+    origin: 'https://frontend-5jus.onrender.com',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -107,6 +108,6 @@ app.post("/recaptcha", async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
 });
