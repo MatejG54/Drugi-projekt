@@ -20,7 +20,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.get("/get", async (req, res) => {
-    const getAll = `SELECT COUNT (*) from public.database;`;
+    const getAll = `SELECT COUNT (*) from public.users;`;
 
     const result = await query(getAll, []);
     
