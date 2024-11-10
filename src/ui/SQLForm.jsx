@@ -39,6 +39,7 @@ function SQLForm() {
     const [showPass, setShowPass] = useState("");
     const [showRole, setShowRole] = useState("");
     const [showEmail, setShowEmail] = useState("");
+    const [userData, setUserData] = useState(null);
 
     const handleToggle = () => {
         setIsChecked(!isChecked);
@@ -47,6 +48,7 @@ function SQLForm() {
         setShowUser("");
         setShowRole("");
         setShowEmail("");
+        setUserData(null);
     }
 
     async function handleSubmit(e) {
@@ -57,6 +59,7 @@ function SQLForm() {
         setShowPass("");
         setShowRole("");
         setShowEmail("");
+        setUserData(null);
 
         const data = {
             username: username,
@@ -84,6 +87,7 @@ function SQLForm() {
             setShowPass(result.res[0].password)
             setShowRole(result.res[0].role)
             setShowEmail(result.res[0].email)
+            setUserData(result.res)
 
         } catch (error) {
             console.log("Error while getting data!");
@@ -111,10 +115,15 @@ function SQLForm() {
                 <StyledButton type="submit">Prijava</StyledButton>
             </StyledForm>
             
-            {showUser && <p><b>{`Username: ${showUser}`}</b></p>}
+            {/* {showUser && <p><b>{`Username: ${showUser}`}</b></p>}
             {showPass && <p><b>{`Password: ${showPass}`}</b></p>}
             {showRole && <p><b>{`Role: ${showRole}`}</b></p>}
-            {showEmail && <p><b>{`Email: ${showEmail}`}</b></p>}
+            {showEmail && <p><b>{`Email: ${showEmail}`}</b></p>} */}
+            {userData && userData.map((item, index) => (
+               <p key={index}>
+                {`{username: "${item.username}", password: "${item.password}", role: "${item.role}", email: "${item.email}"}`}
+               </p> 
+            ))}
         </StyledDiv>
     )  
 }
