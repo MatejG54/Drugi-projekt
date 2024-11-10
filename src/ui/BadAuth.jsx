@@ -147,7 +147,8 @@ function BadAuth() {
             te rješiti CAPTCHA test koji razlikuje ljude od robota. Pokušavamo prijaviti korisnika admin.
             Upisujemo username admin i password sifra123. Kada je ranjivost isključena tada je potrebno rješiti
             CAPTCHA test. U suprotnom moguće je samo poznavanjem usernamea i passworda dohvatiti podatke što ovaj
-            tip prijave čini ranjivim na automatizirane napade.</p>
+            tip prijave čini ranjivim na automatizirane napade. Također, prilikom pokušaja prijave ako se za username
+            ili password upišu krivi podaci, aplikacija ispisuje koji je dio krivo upisan.</p>
             <button
                 className={`checkbox-button ${isChecked ? 'checked' : ''}`}
                 onClick={handleToggle} style={{fontSize: "medium"}}

@@ -97,7 +97,7 @@ function SQLForm() {
             <h1>SQL umetanje (SQL injection)</h1>
             <p><b>Upute</b>: Prikazujemo primjer SQL umetanja. Potrebno je upisati username i password te ako su podatci
             točni tada se prikazuju svi podaci o korisniku. Pokušavamo dohvatiti podatke o korisniku admin. Username je admin 
-            i password je sifra123. Kada je ranjivost uključena pokušajte upisati admin' or '1'='1 za username,
+            i password je sifra123. Kada je ranjivost uključena pokušajte upisati "admin' or '1'='1" za username,
             i bilo koji password. Tada će se ispisati svi podaci o adminu bez obzira koji password bude upisan.
             U suprotnom svi podaci moraju biti točni kako bi se provela prijava.</p>
             <button
