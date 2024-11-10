@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components"
 
 const StyledDiv = styled.div`
-    height: 500px;
+    height: 600px;
     width: 1000px;
     display: flex;
     flex-direction: column;
