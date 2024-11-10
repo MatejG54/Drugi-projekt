@@ -40,6 +40,7 @@ function SQLForm() {
     const [showRole, setShowRole] = useState("");
     const [showEmail, setShowEmail] = useState("");
     const [userData, setUserData] = useState(null);
+    const [error, setError] = useState(""); 
 
     const handleToggle = () => {
         setIsChecked(!isChecked);
@@ -48,6 +49,7 @@ function SQLForm() {
         setShowUser("");
         setShowRole("");
         setShowEmail("");
+        setError("");
         setUserData(null);
     }
 
@@ -82,6 +84,9 @@ function SQLForm() {
 
             const result = await response.json();
             console.log(result.res)
+            if(result.res == []) {
+                setError("Krivo upisani podaci!!!");
+            }
             setShowID(result.res[0].id)
             setShowUser(result.res[0].username)
             setShowPass(result.res[0].password)
@@ -119,6 +124,7 @@ function SQLForm() {
             {showPass && <p><b>{`Password: ${showPass}`}</b></p>}
             {showRole && <p><b>{`Role: ${showRole}`}</b></p>}
             {showEmail && <p><b>{`Email: ${showEmail}`}</b></p>} */}
+            {error && <p style={{color: "red"}}>{error}</p>}
             {userData && userData.map((item, index) => (
                <p key={index}>
                 {`username: ${item.username}, password: ${item.password}, role: ${item.role}, email: ${item.email}`}
