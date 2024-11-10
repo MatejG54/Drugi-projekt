@@ -84,7 +84,7 @@ function SQLForm() {
 
             const result = await response.json();
             console.log(result.res)
-            if(result.res == []) {
+            if(result.res.length === 0) {
                 setError("Krivo upisani podaci!!!");
             }
             setShowID(result.res[0].id)
