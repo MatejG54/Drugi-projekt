@@ -62,6 +62,7 @@ function SQLForm() {
         setShowRole("");
         setShowEmail("");
         setUserData(null);
+        setError("");
 
         const data = {
             username: username,
