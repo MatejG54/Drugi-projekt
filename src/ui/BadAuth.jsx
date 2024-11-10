@@ -39,6 +39,8 @@ function BadAuth() {
     const [showID, setShowID] = useState("");
     const [showUser, setShowUser] = useState("");
     const [showPass, setShowPass] = useState("");
+    const [showRole, setShowRole] = useState("");
+    const [showEmail, setShowEmail] = useState("");
     const [error, setError] = useState(""); 
 
     async function handleSubmit(e) {
@@ -74,6 +76,8 @@ function BadAuth() {
                 setShowID(result.res[0]?.id)
                 setShowUser(result.res[0]?.username)
                 setShowPass(result.res[0]?.password)
+                setShowRole(result.res[0]?.role)
+                setShowEmail(result.res[0]?.email)
 
             } catch (error) {
                 console.log(error)
@@ -115,6 +119,8 @@ function BadAuth() {
                 setShowID(result.res[0]?.id)
                 setShowUser(result.res[0]?.username)
                 setShowPass(result.res[0]?.password)
+                setShowRole(result.res[0]?.role)
+                setShowEmail(result.res[0]?.email)
 
             } catch (error) {
                 console.log(error)
@@ -130,6 +136,8 @@ function BadAuth() {
         setShowID("");
         setShowPass("");
         setShowUser("");
+        setShowRole("");
+        setShowEmail("");
     }
 
     return (
@@ -154,9 +162,11 @@ function BadAuth() {
                 <StyledButton type="submit">Prijava</StyledButton>
             </StyledForm>
             {error && <p style={{color: "red"}}>{error}</p>}
-            {showID && <p><b>{`Id: ${showID}`}</b></p>}
+            {/* {showID && <p><b>{`Id: ${showID}`}</b></p>} */}
             {showUser && <p><b>{`Username: ${showUser}`}</b></p>}
             {showPass && <p><b>{`Password: ${showPass}`}</b></p>}
+            {showRole && <p><b>{`Role: ${showRole}`}</b></p>}
+            {showEmail && <p><b>{`Email: ${showEmail}`}</b></p>}
         </StyledDiv>
     )
 }
