@@ -42,10 +42,12 @@ function BadAuth() {
     const [showRole, setShowRole] = useState("");
     const [showEmail, setShowEmail] = useState("");
     const [error, setError] = useState(""); 
+    const [userData, setUserData] = useState(null);
 
     async function handleSubmit(e) {
         e.preventDefault();
         setError("");
+        setUserData(null);
 
         if(isChecked === true) {
             const data = {
@@ -78,6 +80,7 @@ function BadAuth() {
                 setShowPass(result.res[0]?.password)
                 setShowRole(result.res[0]?.role)
                 setShowEmail(result.res[0]?.email)
+                setUserData(result.res);
 
             } catch (error) {
                 console.log(error)
@@ -121,6 +124,7 @@ function BadAuth() {
                 setShowPass(result.res[0]?.password)
                 setShowRole(result.res[0]?.role)
                 setShowEmail(result.res[0]?.email)
+                setUserData(result.res);
 
             } catch (error) {
                 console.log(error)
@@ -138,6 +142,7 @@ function BadAuth() {
         setShowUser("");
         setShowRole("");
         setShowEmail("");
+        setUserData(null);
     }
 
     return (
@@ -164,10 +169,15 @@ function BadAuth() {
             </StyledForm>
             {error && <p style={{color: "red"}}>{error}</p>}
             {/* {showID && <p><b>{`Id: ${showID}`}</b></p>} */}
-            {showUser && <p><b>{`Username: ${showUser}`}</b></p>}
+            {/* {showUser && <p><b>{`Username: ${showUser}`}</b></p>}
             {showPass && <p><b>{`Password: ${showPass}`}</b></p>}
             {showRole && <p><b>{`Role: ${showRole}`}</b></p>}
-            {showEmail && <p><b>{`Email: ${showEmail}`}</b></p>}
+            {showEmail && <p><b>{`Email: ${showEmail}`}</b></p>} */}
+            {userData && userData.map((item, index) => (
+               <p key={index}>
+                {`username: ${item.username}, password: ${item.password}, role: ${item.role}, email: ${item.email}`}
+               </p> 
+            ))}
         </StyledDiv>
     )
 }

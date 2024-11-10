@@ -121,7 +121,7 @@ function SQLForm() {
             {showEmail && <p><b>{`Email: ${showEmail}`}</b></p>} */}
             {userData && userData.map((item, index) => (
                <p key={index}>
-                {`{username: "${item.username}", password: "${item.password}", role: "${item.role}", email: "${item.email}"}`}
+                {`username: ${item.username}, password: ${item.password}, role: ${item.role}, email: ${item.email}`}
                </p> 
             ))}
         </StyledDiv>
