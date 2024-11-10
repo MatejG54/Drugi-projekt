@@ -38,12 +38,12 @@ app.post("/login", async (req, res) => {
     // console.log(password)
 
     if(isChecked === true) {
-        const getUser = `SELECT * FROM public.database where username = '${username}' AND password = '${password}';`;
+        const getUser = `SELECT * FROM public.users where username = '${username}' AND password = '${password}';`;
         const result = await query(getUser, []);
         res.send({res: result});
 
     } else {
-        const getUser = `SELECT * FROM public.database WHERE username = $1 and password = $2;`
+        const getUser = `SELECT * FROM public.users WHERE username = $1 and password = $2;`
         const result = await query(getUser, [username, password]);
 
         res.send({res: result});
@@ -55,13 +55,13 @@ app.post("/login2", async (req, res) => {
     const password = req.body.password;
     let wrongInput = 0;
 
-    const getByUser = `SELECT * FROM public.database WHERE username = $1;`;
+    const getByUser = `SELECT * FROM public.users WHERE username = $1;`;
     const resUser = await query(getByUser, [username]);
     if(resUser.length === 0) {
         wrongInput = 1;
     }
 
-    const getByPass = `SELECT * FROM public.database WHERE password = $1;`;
+    const getByPass = `SELECT * FROM public.users WHERE password = $1;`;
     const resPass = await query(getByPass, [password]);
     if(resPass.length === 0) {
         wrongInput = 2;
@@ -71,7 +71,7 @@ app.post("/login2", async (req, res) => {
         wrongInput = 3;
     }
 
-    const getUser = `SELECT * FROM public.database WHERE username = $1 and password = $2;`
+    const getUser = `SELECT * FROM public.users WHERE username = $1 and password = $2;`
     const result = await query(getUser, [username, password]);
 
     res.send({res: result, input: wrongInput});
@@ -93,7 +93,7 @@ app.post("/recaptcha", async (req, res) => {
     
 
     if (data.success === true) {
-        const getUser = `SELECT * FROM public.database WHERE username = $1 and password = $2;`
+        const getUser = `SELECT * FROM public.users WHERE username = $1 and password = $2;`
         const result = await query(getUser, [username, password]);
         // console.log(result)
 
